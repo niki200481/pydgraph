@@ -1,6 +1,6 @@
 # pydgraph
 
-This is the official Dgraph database client implementation for Python (Python >= v2.7 and >= v3.5), using [gRPC][grpc].
+This is a fork of the official Dgraph database client implementation for Python (Python >= v2.7 and >= v3.5), using [gRPC][grpc].
 
 [grpc]: https://grpc.io/
 
@@ -37,21 +37,6 @@ the product documentation at [docs.dgraph.io].
   - [Building the source](#building-the-source)
   - [Running tests](#running-tests)
 
-## Install
-
-Install using pip:
-
-```sh
-pip install pydgraph
-```
-
-### Install Notes
-
-To avoid issues when adding composite credentials or when using client authorization, please install gRPC version 1.19.0:
-
-```sh
-pip install grpcio==1.19.0
-```
 
 ## Supported Versions
 
@@ -63,6 +48,7 @@ use a different version of this client.
 |     1.0.X      |      <= *1.2.0*      |
 |     1.1.X      |      >= *2.0.0*      |
 |     1.2.X      |      >= *2.0.0*      |
+|     20.0       |      >= 21.03.0      |
 
 ## Quickstart
 
@@ -481,16 +467,10 @@ command:
 [grpcio-tools]: https://pypi.python.org/pypi/grpcio-tools
 
 ```sh
-python scripts/protogen.py
+./scripts/protogen.sh
 ```
 
-The generated file `api_pb2_grpc.py` needs to be changed in recent versions of python.
-The required change is outlined below as a diff.
-
-```diff
--import api_pb2 as api__pb2
-+from . import api_pb2 as api__pb2
-```
+There are no needs the generated files to be changed in python >= 3.11.0.
 
 ### Running tests
 
